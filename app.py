@@ -11,7 +11,7 @@ def main():
         elif value == 1:
             import os
             os.system('cls')
-            print(products)
+            print(*products,sep='\n')
             value2 = int(
                 input('<Enter 0 for main manu>   <Enter 1 for product>'   
                 '\n<Enter 2 to create new product>   <Enter 3 to update products>'
