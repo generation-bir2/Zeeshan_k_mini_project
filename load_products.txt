@@ -3,3 +3,6 @@ Coke
 Vimto
 Shwarma
 Chicken Wrap
+Water
+Cola
+Pepsi
