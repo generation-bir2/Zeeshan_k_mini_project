@@ -16,11 +16,11 @@ connection = pymysql.connect(
     database
 )
 
-couriers = []
-products = []
-orders = []
+# couriers = []
+# products = []
+# orders = []
 
-load_data(couriers, products)
+# load_data(couriers, products)
 
 print('''
 ___________________________
@@ -38,7 +38,7 @@ while True:
     os.system('clear')
     
     if main_menu == 0:
-        save_data(couriers, products)
+        save_data()
         sys.exit(0)
     
     # products
@@ -55,20 +55,20 @@ while True:
             input('Press Any Button To Continue')
             os.system('clear')
 
-    #     elif products_menu == 2:
-    #         new_product(products)
-    #         input('Press Any Button To Continue')
-    #         os.system('clear')
+        elif products_menu == 2:
+            new_product()
+            input('Press Any Button To Continue')
+            os.system('clear')
 
-    #     elif products_menu == 3:
-    #         update_product(products)
-    #         input('Press Any Button To Continue')
-    #         os.system('clear')
+        elif products_menu == 3:
+            update_product()
+            input('Press Any Button To Continue')
+            os.system('clear')
 
-    #     elif products_menu == 4:
-    #         delete_product(products)
-    #         input('Press Any Button To Continue')
-    #         os.system('clear')
+        elif products_menu == 4:
+            delete_product()
+            input('Press Any Button To Continue')
+            os.system('clear')
     
     # elif main_menu == 2:
     #     print('0 - Return\n1 - Show Couriers\n2 - New Courier\n3 - Update Courier\n4 - Delete Courier')
