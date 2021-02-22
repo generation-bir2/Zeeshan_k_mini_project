@@ -16,12 +16,6 @@ connection = pymysql.connect(
     database
 )
 
-# couriers = []
-# products = []
-# orders = []
-
-# load_data(couriers, products)
-
 print('''
 ___________________________
 |                         |
@@ -99,14 +93,30 @@ while True:
             os.system('clear')
 
 
-    # elif main_menu == 3:
-    #     orders_menu == int(input('select menu option: '))
+    elif main_menu == 3:
+        print('0 - Return\n1 - Show orders\n2 - New Order\n3 - Update Order\n4 - Delete order')
+        orders_menu = int(input('select menu option: '))
+        os.system('clear')
 
-    #     if orders_menu == 0:
-    #         os.system('cls')
+        if orders_menu == 0:
+            os.system('cls')
         
-    #     elif orders_menu == 1:
+        elif orders_menu == 1:
+            show_orders()
+            input('Press Any Button To Continue')
+            os.system('clear')
         
-    #     elif orders_menu == 2:
+        elif orders_menu == 2:
+            new_order()
+            input('Press Any Button To Continue')
+            os.system('clear')
+
+        elif orders_menu == 3:
+            update_orders()
+            input('Press Any Button To Continue')
+            os.system('clear')
         
-    #     elif orders_menu == 3:
+        elif orders_menu == 4:
+            delete_orders()
+            input('Press Any Button To Continue')
+            os.system('clear')

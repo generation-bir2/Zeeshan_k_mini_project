@@ -80,7 +80,56 @@ def update_courier():
 
 def delete_courier():
     show_couriers()
-    select = input('Select Courier to delete:  ')
+    select = input('write Courier name to delete:  ')
     mycursor.execute("DELETE FROM couriers where name=(%s)", (select))
 
 
+# Orders
+
+def show_orders():
+    mycursor.execute("SELECT * FROM Orders")
+    myresult = mycursor.fetchall()
+    print('Orders Table')
+    for row in myresult:
+        print("-----------------------")
+        print(f"Order ID: {row[0]}")
+        print(f"Customer name: {row[1]}")
+        print(f"Customer Address: {row[2]}")
+        print(f"Customer phone: {row[3]}")
+        print(f"Courier: {row[4]}")
+        print(f"Status: {row[5]}")
+        print(f"Items: {row[6]}")
+
+def new_order():
+    new_name = input('Enter new customer name: ')
+    new_address = input('Enter new customer address: ')
+    new_phone = input('Enter new customer phone no: ')
+    show_couriers()
+    select_courier = input('Enter courier name: ')
+    order_status = input('Enter order status: ')
+    os.system('clear')
+    show_products()
+    items = input('Enter items on order: ')
+    mycursor.execute("INSERT INTO Orders (Customer_Name, Customer_Address, Customer_phone, Courier, Status, Item) VALUES (%s, %s, %s, %s, %s, %s)", 
+    (new_name, new_address, new_phone,select_courier, order_status, items))
+
+def update_orders():
+    show_orders()
+    select = input('Enter the customer name to update:  ')
+    os.system('clear')
+    new_name = input('Enter new customer name: ')
+    new_address = input('Enter new customer address: ')
+    new_phone = input('Enter new customer phone no: ')
+    show_couriers()
+    select_courier = input('Enter a couriers name: ') 
+    order_status = input('Enter order status: ')
+    os.system('clear')
+    show_products()
+    items = input('Enter items on order: ')
+    mycursor.execute("UPDATE Orders SET Customer_Name=(%s), Customer_Address=(%s), Customer_phone=(%s), Courier=(%s), status=(%s), Item=(%s) where Customer_Name=(%s)", 
+    (new_name, new_address, new_phone, select_courier, order_status, items, select))
+
+def delete_orders():
+    show_orders()
+    select = input('write customers name on order to delete:  ')
+    mycursor.execute("DELETE FROM Orders where Customer_Name=(%s)", (select))
